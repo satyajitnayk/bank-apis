@@ -93,3 +93,7 @@ sqlc version
 # initialize sqlc => a sqlc.yaml file will be generated
 sqlc init
 ```
+
+## Important Links
+
+1. [Lock monitoring in postgres](https://wiki.postgresql.org/wiki/Lock_Monitoring)
