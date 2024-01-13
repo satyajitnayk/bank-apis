@@ -13,8 +13,11 @@ migrateup:
 migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
+sqlc:
+	sqlc generate
+
 # .PHONY target is used to declare a list of targets that are not associated with files.
 # When a target is marked as .PHONY, it tells Make that there are no actual files with 
 # the same names as the targets, and it should not treat them as file dependencies.
 # This is often used for targets that represent actions or tasks rather than files.
-.PHONY: createdb dropdb postgres migrateup migratedown
+.PHONY: createdb dropdb postgres migrateup migratedown sqlc
