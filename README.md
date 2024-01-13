@@ -94,6 +94,10 @@ sqlc version
 sqlc init
 ```
 
-## Important Links
+## Important Notes
 
 1. [Lock monitoring in postgres](https://wiki.postgresql.org/wiki/Lock_Monitoring)
+2. How to avoid Deadlock in a DB Transaction ?
+
+- All transaction should always acquire lock in a consistent manner.
+- For example in this project always acquire lock for smaller accountId.
