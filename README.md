@@ -101,3 +101,6 @@ sqlc init
 
 - All transaction should always acquire lock in a consistent manner.
 - For example in this project always acquire lock for smaller accountId.
+
+3. [4 standard Transaction isolation levels](https://www.postgresql.org/docs/current/transaction-iso.html)
+4. [Demo of standard isolation levels](https://www.youtube.com/watch?v=4EajrPgJAk0&list=PLy_6D98if3ULEtXtNSY_2qN21VCKgoQAE&index=10)
