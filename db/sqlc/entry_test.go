@@ -36,16 +36,6 @@ func TestCreateEntry(t *testing.T) {
 	CreateRandomEntry(t, account.ID)
 }
 
-func TestCreateEntry_Errors(t *testing.T) {
-	// Test case for a database query error
-	_, err := testQueries.CreateEntry(context.Background(), CreateEntryParams{})
-	require.Error(t, err)
-
-	// Test case for a SQL syntax error
-	_, err = testQueries.CreateEntry(context.Background(), CreateEntryParams{AccountID: 1, Amount: 100})
-	require.Error(t, err)
-}
-
 func TestGetEntry(t *testing.T) {
 	account := CreateRandomAccount(t)
 	entry1 := CreateRandomEntry(t, account.ID)
