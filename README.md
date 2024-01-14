@@ -94,6 +94,12 @@ sqlc version
 sqlc init
 ```
 
+## Generate DB Mock Store
+
+```shell
+mockgen -package mockdb -destination db/mock/store.go github.com/satyajitnayk/bank-apis/db/sqlc Store
+```
+
 ## Important Notes
 
 1. [Lock monitoring in postgres](https://wiki.postgresql.org/wiki/Lock_Monitoring)
