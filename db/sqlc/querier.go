@@ -13,19 +13,22 @@ type Querier interface {
 	CreateAccount(ctx context.Context, arg CreateAccountParams) (Account, error)
 	CreateEntry(ctx context.Context, arg CreateEntryParams) (Entry, error)
 	CreateTransfer(ctx context.Context, arg CreateTransferParams) (Transfer, error)
+	CreateUser(ctx context.Context, arg CreateUserParams) (User, error)
 	DeleteAccount(ctx context.Context, id int64) error
 	GetAccount(ctx context.Context, id int64) (Account, error)
+	// The FOR UPDATE clause in a SQL query is used to lock the selected rows
+	// in a table for update operations. This is commonly used in situations
+	// where multiple transactions may attempt to update the same set of rows
+	// concurrently, and you want to prevent potential conflicts or race conditions.
+	// FOR NO KEY UPDATE -> we are telling postgres we will not update the key/id column
 	GetAccountForUpdate(ctx context.Context, id int64) (Account, error)
 	GetEntry(ctx context.Context, id int64) (Entry, error)
 	GetTransfer(ctx context.Context, id int64) (Transfer, error)
+	GetUser(ctx context.Context, username string) (User, error)
 	ListAccounts(ctx context.Context, arg ListAccountsParams) ([]Account, error)
 	ListEntries(ctx context.Context, arg ListEntriesParams) ([]Entry, error)
 	ListTransfers(ctx context.Context, arg ListTransfersParams) ([]Transfer, error)
 	UpdateAccount(ctx context.Context, arg UpdateAccountParams) (Account, error)
 }
 
-// This line is asserting that the Queries struct implements the Querier interface. 
-// This is done by creating a variable of type Querier and assigning (*Queries)(nil) to it.
-// This is a way to make sure that the Queries struct adheres to the methods defined 
-// in the Querier interface. If it doesn't, the code will not compile.
 var _ Querier = (*Queries)(nil)
