@@ -114,3 +114,4 @@ mockgen -package mockdb -destination db/mock/store.go github.com/satyajitnayk/ba
 3. [4 standard Transaction isolation levels](https://www.postgresql.org/docs/current/transaction-iso.html)
 4. [Demo of standard isolation levels](https://www.youtube.com/watch?v=4EajrPgJAk0&list=PLy_6D98if3ULEtXtNSY_2qN21VCKgoQAE&index=10)
 5. [viper repo](https://github.com/spf13/viper)
+6. [validator package in go](https://github.com/go-playground/validator)
