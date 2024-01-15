@@ -59,11 +59,14 @@ brew install golang-migrate
 # check version
 migrate -version
 
-# create migration file
+# create initial migration file
 migrate create -ext sql -dir db/migration -seq init_schema
 
 # run migration
 migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+
+# create add_users migration files
+migrate create -ext sql -dir db/migration -seq add_users
 ```
 
 ## Usage of Makefile

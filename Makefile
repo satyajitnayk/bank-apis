@@ -10,8 +10,14 @@ dropdb:
 migrateup:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
+migrateup1:
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
+
 migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+
+migratedown1:
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
 
 sqlc:
 	sqlc generate
@@ -30,4 +36,4 @@ mock:
 # When a target is marked as .PHONY, it tells Make that there are no actual files with 
 # the same names as the targets, and it should not treat them as file dependencies.
 # This is often used for targets that represent actions or tasks rather than files.
-.PHONY: createdb dropdb postgres migrateup migratedown sqlc test server mock
+.PHONY: createdb dropdb postgres migrateup migratedown migrateup1 migratedown1 sqlc test server mock
