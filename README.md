@@ -102,3 +102,14 @@ sqlc init
 ```shell
 mockgen -package mockdb -destination db/mock/store.go github.com/satyajitnayk/bank-apis/db/sqlc Store
 ```
+
+## Using PASETO for authentication & authorization
+
+## Authorization Rules
+
+| Action             | Authorization Rule                                              |
+| ------------------ | --------------------------------------------------------------- |
+| **Create Account** | A logged-in user can only create an account for him/herself.    |
+| **Get Account**    | A logged-in user can only get accounts that he/she owns.        |
+| **List Accounts**  | A logged-in user can only list accounts that belong to him/her. |
+| **Transfer Money** | A logged-in user can only send money from his/her own account.  |
