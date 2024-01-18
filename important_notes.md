@@ -48,3 +48,7 @@ In summary, symmetric algorithms use a single shared secret key, while asymmetri
 
 5. **Limited Token Revocation:**
    - Lack of built-in mechanisms for prompt and dynamic token revocation, making it challenging to invalidate compromised tokens.
+
+## Script to wait for a service to be ready
+
+[./wait-for](https://github.com/eficode/wait-for) is a script to wait for another service to become available.
