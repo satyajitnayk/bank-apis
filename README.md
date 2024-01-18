@@ -103,6 +103,35 @@ sqlc init
 mockgen -package mockdb -destination db/mock/store.go github.com/satyajitnayk/bank-apis/db/sqlc Store
 ```
 
+## Run Docker image for the project
+
+```shell
+# build inside project root directory
+docker build -t simplebank:latest .
+
+# run in dev mode
+docker run --name simplebank -p 8080:8080 simplebank:latest
+
+# run in production mode
+docker run --name simplebank -p 8080:8080 -e GIN_MODE=release simplebank:latest
+
+# remove docker image
+docker rmi simplebank
+
+# remove container
+docker rm <conatiner_name/id>
+
+# check n/w config of a conatiner
+docker container inspect <<conatiner_name/id>
+```
+
+- dial tcp 127.0.0.1:5432: connect: connection refused can be solved by [Fix communication between conatiners](fix_communication_bw_conatiners.md)
+
+```shell
+# final command
+docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release  -e DB_SOURCE="postgresql://root:secret@postgres12:5432/simple_bank?sslmode=disable" simplebank:latest
+```
+
 ## Using PASETO for authentication & authorization
 
 ## Authorization Rules
