@@ -1,6 +1,9 @@
 # bank-apis
 
-REST apis for a banking system written in go
+- REST apis for a banking system written in go
+- Imporatant notes to learn from this project [notes](important_notes.md)
+- Database Design for this project [DB Design](db_design.md)
+- Multstage Build for docker & it's advantages [Multistage Docker Build](multistage_build.md)
 
 ## run postgres
 
